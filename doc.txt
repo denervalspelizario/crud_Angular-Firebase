@@ -1,0 +1,5 @@
+projeto foi criado seguindo o comando
+
+ng new crud-usuarios --no-standalone
+
+este comando cria o app.module facilitando usar o projeto igual aos angular mais antigos
