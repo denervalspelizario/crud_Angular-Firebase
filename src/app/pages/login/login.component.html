@@ -3,13 +3,23 @@
 <div class="area-login-background d-nome d-md-black"></div>
 
 
+<!-- aqui poderia se usar o reactforms mas como será apenas para pegar dados
+     de 2 inputs vamos usar o ngModel -->
 <div class="area-form">
   <form>
     <h1 class="titulo">CRUD USERS</h1>
     <h2 class="subtitulo">Mais eficiência no controle de usuários</h2>
 
-    <input class="input-form" type="text" placeholder="Digite seu nome">
-    <app-button textButton="Acessar" sizeButton="100"></app-button>
+    <!-- dados dos input para variavel userName -->
+    <input
+      [(ngModel)]="userName"
+      [ngModelOptions]="{standalone: true}"
+      class="input-form" type="text"
+      placeholder="Digite seu nome"
+      >
+
+
+    <app-button textButton="Acessar" sizeButton="100" (click)="login()"></app-button>
   </form>
 
   <p class="footer">© Desenvolvido por Dener Pelizario | 2024</p>

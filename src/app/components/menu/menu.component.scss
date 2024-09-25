@@ -1,0 +1,56 @@
+.sidemenu {
+  width: 210px; // largura
+  height: 100vh; // taamanho
+  min-height: 100vh; // altura min
+  display: block;
+  float: left; // jogando para esquerda
+  background-color: var(--primary-color); // cor de fundo
+  padding: 10px 0px; // espaço interno
+  box-shadow: 4px 0px 10px 4px; // sombra
+  margin-right: 16px; // espaço externo direita
+
+  ul {
+    padding: 0;
+  }
+
+  .logo {
+    font-size: 20px; // tamamho font
+    font-weight: bold; // largura font
+    margin-left: 4px; // margim externa direita
+  }
+
+  li {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fafafa;
+    padding: 14px 24px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    transition: 0.3s linear all;
+
+    mat-icon {             // estilizando o icon do material icon
+      margin-right: 14px;
+      font-size: 22px;
+    }
+
+    // ao passar o mouse nas lis
+    &:hover {
+      background-color: #e6e6e6;
+      cursor: pointer;
+      color: var(--primary-color);
+    }
+  }
+
+  .logout {
+    position: absolute;
+    bottom: 0;
+    width: 210px;
+  }
+
+  a {
+    text-decoration: none; // tirando linha de links
+  }
+
+}

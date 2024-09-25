@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,4 +8,22 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  // variavel do input
+  userName:string;
+
+  // injeções de dependencia
+  constructor(private rota: Router){
+
+  }
+
+  // função que pega dados do formulario de login
+  login(){
+
+    // salvando dados da userName de maneira temporária no navegador
+    // esse dado será salvo na variavel temporaria user
+    sessionStorage.setItem('user', this.userName)
+
+    //depois de pegar o dado userName vai para pagina home
+    this.rota.navigate(['home'])
+  }
 }
