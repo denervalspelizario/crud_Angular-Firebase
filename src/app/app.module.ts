@@ -9,7 +9,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
+
+// angular material
 import {MatIconModule} from '@angular/material/icon' // icones do material
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import {MatIconModule} from '@angular/material/icon' // icones do material
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule // tipo um loading do angular material
 
   ],
   providers: [
