@@ -13,6 +13,13 @@ import { MenuComponent } from './components/menu/menu.component';
 // angular material
 import {MatIconModule} from '@angular/material/icon' // icones do material
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+
+// firebase
+import {AngularFireModule} from '@angular/fire/compat'
+import { environment } from '../environments/environment.development';
+import { CrudComponent } from './pages/crud/crud.component';
 
 
 @NgModule({
@@ -21,18 +28,20 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     ButtonComponent,
     LoginComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    CrudComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     MatIconModule,
-    MatProgressSpinnerModule // tipo um loading do angular material
+    MatProgressSpinnerModule, // tipo um loading do angular material
+    AngularFireModule.initializeApp(environment.firebaseConfig), // firebase
 
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })

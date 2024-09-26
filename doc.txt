@@ -3,3 +3,34 @@ projeto foi criado seguindo o comando
 ng new crud-usuarios --no-standalone
 
 este comando cria o app.module facilitando usar o projeto igual aos angular mais antigos
+
+
+---
+
+gerar o enviroments
+
+ng g environments
+
+depois de adicionar os dados do firebase nele adicionar esse comando 
+
+ng add @angular/fire
+O comando ng add @angular/fire é usado para adicionar o AngularFire
+adicione o o firestore com espaço e depois enter
+
+após fazer toda instalação
+vai app.module.ts
+
+importe
+import {AngularFireModule} from '@angular/fire/compat'
+
+e nos imports adicione
+AngularFireModule.initializeApp(environment.firebaseConfig)
+
+
+------------------------
+criação de service 
+ng g service services/users
+
+------------------------
+criação de interfaces
+ng g interface interfaces/user
