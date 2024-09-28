@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ButtonComponent } from './components/button/button.component';
 import { LoginComponent } from './pages/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ModalViewUserComponent } from './pages/crud/modal-view-user/modal-view-user.component';
@@ -25,7 +25,10 @@ import { MatInputModule } from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatSort, MatSortModule} from '@angular/material/sort';
-import {MatDialogModule} from '@angular/material/dialog'
+import {MatDialogModule} from '@angular/material/dialog';
+import { ModalFormUserComponent } from './pages/crud/modal-form-user/modal-form-user.component'
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 
@@ -38,13 +41,17 @@ import {MatDialogModule} from '@angular/material/dialog'
     HomeComponent,
     MenuComponent,
     CrudComponent,
-    ModalViewUserComponent
+    ModalViewUserComponent,
+    ModalFormUserComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
+
+    // Angular Material
     MatIconModule,
     MatProgressSpinnerModule, // tipo um loading do angular material
     AngularFireModule.initializeApp(environment.firebaseConfig), // firebase
@@ -56,6 +63,8 @@ import {MatDialogModule} from '@angular/material/dialog'
     MatPaginatorModule,
     MatTableModule,
     MatDialogModule,
+    MatSelectModule
+
   ],
   providers: [
     provideAnimationsAsync(),

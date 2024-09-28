@@ -15,7 +15,12 @@
   <div class="row mt-2">
     <div class="col-12">
 
-      <app-button class="float-end" textButton="+ Cadastrar" ></app-button>
+      <!-- botão de cadastro -->
+      <app-button
+        class="float-end"
+        textButton="+ Cadastrar"
+        (click)="openModalAddUser()" >
+      </app-button>
 
       <mat-form-field>
         <mat-label>Filter</mat-label>
@@ -78,8 +83,10 @@
             <!-- neste terá um btn de click de um método que chama um modal com info do user -->
             <mat-icon class="icone-tabela" (click)="openModalViewUser(user)" >visibility</mat-icon>
 
+            <!-- neste terá um btn de click de um método que chama um modal editar user -->
+            <mat-icon class="icone-tabela" (click)="openModalEditUser(user)" >edit</mat-icon>
 
-            <mat-icon class="icone-tabela">edit</mat-icon>
+
             <mat-icon class="icone-tabela">delete</mat-icon>
 
           </td>

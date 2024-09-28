@@ -7,6 +7,7 @@ import { User } from '../../interfaces/user';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalViewUserComponent } from './modal-view-user/modal-view-user.component';
+import { ModalFormUserComponent } from './modal-form-user/modal-form-user.component';
 
 @Component({
   selector: 'app-crud',
@@ -76,6 +77,9 @@ export class CrudComponent {
         // aqui é só para garantir que o paginator funcione de verdade(opcional)
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+
+        // deixando em pt-br
+        this.paginator._intl.itemsPerPageLabel = "itens por pagina";
       },
       //se der erro então(aqui é como se fosse um try catch)
       error: (erro) => {
@@ -113,5 +117,40 @@ export class CrudComponent {
     })
   }
 
+
+  // método do modal que add users
+  openModalAddUser()
+  {
+    // dialog que tem como base o metodo do angular material que gera o modal MatDialog
+    // ele vai gerar um modal com as infos que estiverem no componente ModalFormUserComponent
+    this.dialog.open(ModalFormUserComponent, {
+
+      // instruções do modal
+      width: '700px',
+      height: '400px',
+
+      // quando fechar o modal chama o metodo que lista usuários
+      // IMPORTANTE
+      // no firebase essa parte é opcional agora em uma  api c# e bd relacional precisa
+    }).afterClosed().subscribe(() => this.getListUsers());
+  }
+
+  // metodo do modal para editar user
+  openModalEditUser(user : User)
+  {
+    // dialog que tem como base o metodo do angular material que gera o modal MatDialog
+    // ele vai gerar um modal com as infos que estiverem no componente ModalFormUserComponent
+    this.dialog.open(ModalFormUserComponent, {
+
+      // instruções do modal
+      width: '700px',
+      height: '400px',
+      data: user
+
+      // quando fechar o modal chama o metodo que lista usuários
+      // IMPORTANTE
+      // no firebase essa parte é opcional agora em uma  api c# e bd relacional precisa
+    }).afterClosed().subscribe(() => this.getListUsers());
+  }
 
 }

@@ -20,7 +20,7 @@ export class UsersService {
 
 
   // injeções de dependencia
-  constructor(private dataBaseStore: AngularFirestore) 
+  constructor(private dataBaseStore: AngularFirestore)
   {
 
   }
@@ -29,7 +29,7 @@ export class UsersService {
   getAllUsers()
   {
     // pegandos a lista de usuarios da tabela 'users'
-    
+
     // se eu quisesse pegar toda a tabela bruta poderia fazer como abaixo
     //return this.dataBaseStore.collection('users')
 
@@ -48,7 +48,7 @@ export class UsersService {
   // metodo que atualiza o user
   updateUser(userId: string, user: User)
   {
-    return this.dataBaseStore.collection('users').doc('userId').update(user);
+    return this.dataBaseStore.collection('users').doc(userId).update(user);
   }
 
   // metodo de deletar user
