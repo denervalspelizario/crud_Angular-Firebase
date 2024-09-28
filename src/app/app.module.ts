@@ -9,17 +9,25 @@ import { LoginComponent } from './pages/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { ModalViewUserComponent } from './pages/crud/modal-view-user/modal-view-user.component';
+import { environment } from '../environments/environment.development';
+
 
 // angular material
 import {MatIconModule} from '@angular/material/icon' // icones do material
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
-// firebase
+// firebase + agular material
 import {AngularFireModule} from '@angular/fire/compat'
-import { environment } from '../environments/environment.development';
 import { CrudComponent } from './pages/crud/crud.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatSort, MatSortModule} from '@angular/material/sort';
+import {MatDialogModule} from '@angular/material/dialog'
+
+
 
 
 @NgModule({
@@ -29,7 +37,9 @@ import { CrudComponent } from './pages/crud/crud.component';
     LoginComponent,
     HomeComponent,
     MenuComponent,
-    CrudComponent
+    CrudComponent,
+    ModalViewUserComponent
+
   ],
   imports: [
     BrowserModule,
@@ -38,7 +48,14 @@ import { CrudComponent } from './pages/crud/crud.component';
     MatIconModule,
     MatProgressSpinnerModule, // tipo um loading do angular material
     AngularFireModule.initializeApp(environment.firebaseConfig), // firebase
-
+    MatFormFieldModule,
+    MatInputModule,
+    MatSort,
+    MatSortModule,
+    MatPaginator,
+    MatPaginatorModule,
+    MatTableModule,
+    MatDialogModule,
   ],
   providers: [
     provideAnimationsAsync(),

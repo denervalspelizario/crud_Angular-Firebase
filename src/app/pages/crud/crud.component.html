@@ -2,4 +2,105 @@
 <!-- componente de menu -->
 <app-menu></app-menu>
 
-<p>tela crud</p>
+<div class="container-fluid pt-3">
+
+  <div class="row">
+    <div class="col-12">
+      <h1 class="titulo" >Cadastro de usuários</h1>
+      <h2 class="subtitulo">Gerencie usuários, editando ou excluindo</h2>
+    </div>
+  </div>
+
+
+  <div class="row mt-2">
+    <div class="col-12">
+
+      <app-button class="float-end" textButton="+ Cadastrar" ></app-button>
+
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Digite sua busca.." #input>
+      </mat-form-field>
+
+      <!-- tabela com paginificação esse dataSource é a base de dados que será feito o loop -->
+      <table class="mat-elevation-z8" mat-table [dataSource]="dataSource" matSort>
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+
+          <!-- aqui é o header/label -->
+          <th  class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+
+          <!-- aqui vem o dado da tabela no caso id -->
+          <td class="td-table" mat-cell *matCellDef="let user"> {{user.firebaseId}} </td>
+        </ng-container>
+
+        <!-- Name -->
+        <ng-container matColumnDef="name">
+          <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+          <td class="td-table" mat-cell *matCellDef="let user"> {{user.name}} </td>
+        </ng-container>
+
+        <!-- Email -->
+        <ng-container matColumnDef="email">
+          <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+          <td class="td-table" mat-cell *matCellDef="let user"> {{user.email}} </td>
+        </ng-container>
+
+        <!-- Cargo -->
+        <ng-container matColumnDef="role">
+          <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Cargo </th>
+          <td class="td-table" mat-cell *matCellDef="let user"> {{user.role}} </td>
+        </ng-container>
+
+        <!-- Beneficios -->
+        <ng-container matColumnDef="benefits">
+          <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> Beneficios </th>
+          <td class="td-table" mat-cell *matCellDef="let user">
+
+            <!-- aqui vai ter uma condição que vai mostrar os icones de acordo da existencia de dados -->
+
+            <!-- se ele tiver o helthplan OU o dentalplan exibe o icon check -->
+            <mat-icon class="c-primary" *ngIf="user.healthPlan || user.dentalPlan">check</mat-icon>
+
+            <!-- se ele NAO tiver o helthplan e o dentalplan exibe o icon remove -->
+            <mat-icon class="c-error"  *ngIf="!user.healthPlan && !user.dentalPlan">remove</mat-icon>
+
+          </td>
+        </ng-container>
+
+        <!-- Ações -->
+        <ng-container matColumnDef="actions">
+          <th class="th-table" mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+          <td class="td-table" mat-cell *matCellDef="let user">
+
+            <!-- aqui nesta coluna ficará os 3 icones -->
+            <!-- neste terá um btn de click de um método que chama um modal com info do user -->
+            <mat-icon class="icone-tabela" (click)="openModalViewUser(user)" >visibility</mat-icon>
+
+
+            <mat-icon class="icone-tabela">edit</mat-icon>
+            <mat-icon class="icone-tabela">delete</mat-icon>
+
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let user; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell no-data" colspan="4">Não foram encontrados dados para a pesquisa "{{input.value}}"</td>
+        </tr>
+      </table>
+
+      <!-- parte da paginificação -->
+      <mat-paginator
+        class="shadow-sm"
+        [pageSizeOptions]="[3, 5, 7 , 10]"
+        aria-label="Selecione usuários por pagina"></mat-paginator>
+
+    </div>
+  </div>
+
+</div>
