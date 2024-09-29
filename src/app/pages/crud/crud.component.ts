@@ -153,4 +153,14 @@ export class CrudComponent {
     }).afterClosed().subscribe(() => this.getListUsers());
   }
 
+  // deletando usuário
+  deleteUser(id: string)
+  {
+    this.userService.deleteUser(id).then(
+      (response: any) => {
+        window.alert('Usuário excluido com sucesso')
+      }
+    )
+  }
+
 }

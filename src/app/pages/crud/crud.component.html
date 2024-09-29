@@ -86,8 +86,8 @@
             <!-- neste terá um btn de click de um método que chama um modal editar user -->
             <mat-icon class="icone-tabela" (click)="openModalEditUser(user)" >edit</mat-icon>
 
-
-            <mat-icon class="icone-tabela">delete</mat-icon>
+            <!-- neste terá um btn de DUPLO click que chama o metodo de deletar user -->
+            <mat-icon class="icone-tabela" (dblclick)="deleteUser(user.firebaseId)">delete</mat-icon>
 
           </td>
         </ng-container>

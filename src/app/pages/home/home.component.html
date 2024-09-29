@@ -14,7 +14,7 @@
 
           <div class="col-12 col-md-8">
 
-            <h1 class="titulo">VTNC francisca</h1>
+            <h1 class="titulo">CRUD USERS</h1>
 
             <h3 class="subtitulo">Mais eficiência na gestão dos <span>usuários</span> e de seus benefícios. Chega de sistemas antigos e sem usabilidade, agora com o <span>Crud Users</span> seu trabalho fica até 3x mais rápido e simplificado.<br>
               Confira um resumo das informações em nosso <span>Dashboard</span>
@@ -24,7 +24,16 @@
           </div>
 
           <div class="col-12 col-md-4">
-            <img src="../../../assets/dashboard.png" width="100%">
+
+            <!-- controlar o tempo de execução de um elemento um loading controlado  -->
+            @defer () {  <!-- inicio do loading -->
+              <img src="../../../assets/dashboard.png" width="100%">
+            } @placeholder(minimum 1000ms) { <!-- oque será colocado no loading e tempo -->
+              Carregando imagem ...
+            } @error { <!-- erro possivel -->
+              Falha no carregamento da imagem
+            }
+
           </div>
 
         </div>
