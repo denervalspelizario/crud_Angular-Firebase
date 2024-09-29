@@ -1,1 +1,44 @@
-<p>cadastro works!</p>
+<!-- div só vai aparecer no mobile -->
+<div class="containerCadastro">
+
+  <!-- aqui poderia se usar o reactforms mas como será apenas para pegar dados
+     de 2 inputs vamos usar o ngModel -->
+  <div class="area-form">
+
+    <form>
+      <h1 class="titulo">Rock Club</h1>
+      <h2 class="subtitulo">Gestão bar e restaurante Rock Club S/A</h2>
+
+      <!-- dados dos input para variavel userName -->
+      <input
+        [(ngModel)]="userEmail"
+        [ngModelOptions]="{standalone: true}"
+        class="input-form" type="text"
+        placeholder="Digite seu email"
+        >
+
+      <input
+        [(ngModel)]="userPassword"
+        [ngModelOptions]="{standalone: true}"
+        class="input-form" type="password"
+        placeholder="Digite sua senha"
+        >
+
+      <input
+        [(ngModel)]="userConfirmPassword"
+        [ngModelOptions]="{standalone: true}"
+        class="input-form" type="password"
+        placeholder="Confirme sua senha"
+        >
+
+
+
+      <button class="btnCadastrar" (click)="cadastrar()">
+        Cadastrar
+      </button>
+
+    </form>
+
+  </div>
+
+</div>

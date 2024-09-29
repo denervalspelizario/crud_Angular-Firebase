@@ -12,25 +12,29 @@
 
     <!-- dados dos input para variavel userName -->
     <input
-      [(ngModel)]="userName"
+      [(ngModel)]="userEmail"
       [ngModelOptions]="{standalone: true}"
-      class="input-form" type="text"
-      placeholder="Digite seu nome"
+      class="input-form" type="email"
+      placeholder="Digite seu email"
       >
 
     <input
-      [(ngModel)]="userName"
+      [(ngModel)]="userPassword"
       [ngModelOptions]="{standalone: true}"
-      class="input-form" type="text"
+      class="input-form" type="password"
       placeholder="Digite sua senha"
       >
+
+    <div class="alert alert-danger" role="alert" *ngIf="userLoginFail">
+      Email ou senha inválida
+    </div>
 
 
     <app-button textButton="Acessar" sizeButton="100" (click)="login()"></app-button>
 
     <div class="col-12 containerLogin">
 
-      <button class="btn-gmail">
+      <button class="btn-gmail" (click)="loginGoogle()">
         Logar com Google
         <img src="../../../assets/google.svg" class="img-btn-gmail">
       </button>

@@ -19,6 +19,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // firebase + agular material
 import {AngularFireModule} from '@angular/fire/compat'
+import { AngularFireAuthModule } from '@angular/fire/compat/auth'; // auth angular
 import { CrudComponent } from './pages/crud/crud.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -57,6 +58,7 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
     MatIconModule,
     MatProgressSpinnerModule, // tipo um loading do angular material
     AngularFireModule.initializeApp(environment.firebaseConfig), // firebase
+    AngularFireAuthModule,
     MatFormFieldModule,
     MatInputModule,
     MatSort,
