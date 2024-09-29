@@ -7,8 +7,8 @@
      de 2 inputs vamos usar o ngModel -->
 <div class="area-form">
   <form>
-    <h1 class="titulo">VTNC francisca</h1>
-    <h2 class="subtitulo">Mais eficiência no controle de usuários</h2>
+    <h1 class="titulo">Rock Club</h1>
+    <h2 class="subtitulo">Gestão bar e restaurante Rock Club S/A</h2>
 
     <!-- dados dos input para variavel userName -->
     <input
@@ -18,9 +18,32 @@
       placeholder="Digite seu nome"
       >
 
+    <input
+      [(ngModel)]="userName"
+      [ngModelOptions]="{standalone: true}"
+      class="input-form" type="text"
+      placeholder="Digite sua senha"
+      >
+
 
     <app-button textButton="Acessar" sizeButton="100" (click)="login()"></app-button>
+
+    <div class="col-12 containerLogin">
+
+      <button class="btn-gmail">
+        Logar com Google
+        <img src="../../../assets/google.svg" class="img-btn-gmail">
+      </button>
+
+      <p>Deseja se cadastrar? Clique <span routerLink="/cadastro">aqui</span></p>
+    </div>
+
+
+
+
   </form>
 
   <p class="footer">© Desenvolvido por Dener Pelizario | 2024</p>
 </div>
+
+

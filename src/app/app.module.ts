@@ -28,6 +28,7 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ModalFormUserComponent } from './pages/crud/modal-form-user/modal-form-user.component'
 import {MatSelectModule} from '@angular/material/select';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
 
 
 
@@ -42,7 +43,8 @@ import {MatSelectModule} from '@angular/material/select';
     MenuComponent,
     CrudComponent,
     ModalViewUserComponent,
-    ModalFormUserComponent
+    ModalFormUserComponent,
+    CadastroComponent
 
   ],
   imports: [

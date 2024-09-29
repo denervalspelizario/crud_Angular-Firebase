@@ -8,8 +8,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  // variavel do input
+  // variavel do input userName
   userName:string;
+
+  // variavel do input userPassword
+  userPassword:string;
 
   // injeções de dependencia
   constructor(private rota: Router){
