@@ -6,7 +6,7 @@
 <!-- aqui poderia se usar o reactforms mas como será apenas para pegar dados
      de 2 inputs vamos usar o ngModel -->
 <div class="area-form">
-  <form>
+  <form >
     <h1 class="titulo">Rock Club</h1>
     <h2 class="subtitulo">Gestão bar e restaurante Rock Club S/A</h2>
 
@@ -21,13 +21,25 @@
     <input
       [(ngModel)]="userPassword"
       [ngModelOptions]="{standalone: true}"
+
       class="input-form" type="password"
       placeholder="Digite sua senha"
       >
 
     <div class="alert alert-danger" role="alert" *ngIf="userLoginFail">
-      Email ou senha inválida
+      E-mail ou senha incorretos. Por favor, verifique e tente novamente.
     </div>
+
+    <div class="alert alert-danger" role="alert" *ngIf="userLoginFail">
+      Se precisar redefinir a senha clique
+      <span routerLink="/cadastro" class="btn-redefinicao-senha"> aqui </span>
+    </div>
+
+
+
+
+
+
 
 
     <app-button textButton="Acessar" sizeButton="100" (click)="login()"></app-button>

@@ -121,9 +121,11 @@
     <div class="col-12 col-lg-3">
       <div class="card-info">
         <div class="container-perfil">
-          <img src="../../../assets/perfil.png" class="img-perfil">
+          <img src="{{userPhoto}}" class="img-perfil">
           <h4>Seja Bem vindo</h4>
           <h5>{{userName}}</h5>
+          <h4 *ngIf="userCargo">{{userCargo}}</h4>
+          <h5 *ngIf="userCargo">{{userDepartamento}}</h5>
           <li><mat-icon>location_on</mat-icon> SP - Brasil</li>
         </div>
 

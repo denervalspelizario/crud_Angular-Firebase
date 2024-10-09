@@ -5,36 +5,80 @@
      de 2 inputs vamos usar o ngModel -->
   <div class="area-form">
 
-    <form>
+    <form [formGroup]="cadastroForm">
       <h1 class="titulo">Rock Club</h1>
       <h2 class="subtitulo">Gestão bar e restaurante Rock Club S/A</h2>
 
-      <!-- dados dos input para variavel userName -->
-      <input
-        [(ngModel)]="userEmail"
-        [ngModelOptions]="{standalone: true}"
-        class="input-form" type="text"
-        placeholder="Digite seu email"
-        >
+      <div class="input-box">
+        <mat-form-field class="w-100">
+          <mat-label>Nome:</mat-label>
+          <input matInput id="nome" type="text"  formControlName="nome" placeholder="Nome " required>
+        </mat-form-field>
+      </div>
 
-      <input
-        [(ngModel)]="userPassword"
-        [ngModelOptions]="{standalone: true}"
-        class="input-form" type="password"
-        placeholder="Digite sua senha"
-        >
+      <div class="input-box">
+        <mat-form-field class="w-100">
+          <mat-label>Sobrenome:</mat-label>
+          <input matInput id="sobrenome" type="text" formControlName="sobreNome" placeholder="Sobrenome" required>
+        </mat-form-field>
+      </div>
 
-      <input
-        [(ngModel)]="userConfirmPassword"
-        [ngModelOptions]="{standalone: true}"
-        class="input-form" type="password"
-        placeholder="Confirme sua senha"
-        >
 
+      <div class="input-box">
+        <mat-form-field class="w-100">
+          <mat-label>Cargo:</mat-label>
+          <input matInput id="cargo" type="text" formControlName="cargo" placeholder="Cargo" required>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field class="w-100">
+          <mat-label>Departamento</mat-label>
+          <mat-select formControlName="departamento">
+            <mat-option value="Caixa">Atendimento/Caixa</mat-option>
+            <mat-option value="Cozinha">Cozinha</mat-option>
+            <mat-option value="Bar">Bar</mat-option>
+            <mat-option value="Marketing">Marketing</mat-option>
+            <mat-option value="Administrativo">Administrativo</mat-option>
+            <mat-option value="Zeladoria">Zeladoria</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+
+      <div class="input-box">
+        <mat-form-field class="w-100">
+          <mat-label>Email:</mat-label>
+          <input matInput id="email" type="email" formControlName="email" placeholder="Email" required>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field class="w-100">
+          <mat-label>Senha:</mat-label>
+          <input matInput id="senha" type="password" formControlName="senha" placeholder="Senha" required>
+        </mat-form-field>
+      </div>
+
+      <div class="input-box">
+        <mat-form-field class="w-100">
+          <mat-label>Confirme a senha:</mat-label>
+          <input matInput id="confirme-senha" type="password" formControlName="confirmeSenha" placeholder="Confirme sua Senha" required>
+        </mat-form-field>
+      </div>
+
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Adicione uma foto de perfil</label>
+        <input class="form-control" type="file" id="imagePerfil" (change)="onFileSelected($event)">
+      </div>
 
 
       <button class="btnCadastrar" (click)="cadastrar()">
         Cadastrar
+      </button>
+
+      <button class="btnVoltar" routerLink="/login">
+        Voltar
       </button>
 
     </form>

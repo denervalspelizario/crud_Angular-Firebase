@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 
 // import do firestore
 import {AngularFirestore} from '@angular/fire/compat/firestore'
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { User } from '../interfaces/user';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 
 @Injectable({
@@ -20,7 +21,9 @@ export class UsersService {
 
 
   // injeções de dependencia
-  constructor(private dataBaseStore: AngularFirestore)
+  constructor(private dataBaseStore: AngularFirestore,
+    private afAuth: AngularFireAuth
+  )
   {
 
   }
@@ -56,4 +59,12 @@ export class UsersService {
   {
     return this.dataBaseStore.collection('users').doc(userId).delete();
   }
+
+  //metodo que busca usuário cadastrado da tabela usuários via id
+  getUserId(userId: string) {
+    return this.dataBaseStore.collection('usuarios').doc(userId).valueChanges();
+  }
+
+
+
 }

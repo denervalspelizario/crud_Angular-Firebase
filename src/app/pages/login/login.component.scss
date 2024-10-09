@@ -115,6 +115,15 @@
   }
 }
 
+
+.btn-redefinicao-senha {
+
+  font-weight: 500;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .footer {
   position: absolute;
   bottom: 4px;

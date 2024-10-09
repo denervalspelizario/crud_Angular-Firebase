@@ -11,15 +11,20 @@ import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ModalViewUserComponent } from './pages/crud/modal-view-user/modal-view-user.component';
 import { environment } from '../environments/environment.development';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { RedefinicaoSenhaComponent } from './pages/redefinicao-senha/redefinicao-senha.component';
 
 
 // angular material
 import {MatIconModule} from '@angular/material/icon' // icones do material
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+
+
 // firebase + agular material
 import {AngularFireModule} from '@angular/fire/compat'
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'; // auth angular
+import { AngularFireStorageModule } from '@angular/fire/compat/storage'; // Importar  
 import { CrudComponent } from './pages/crud/crud.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -29,7 +34,8 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ModalFormUserComponent } from './pages/crud/modal-form-user/modal-form-user.component'
 import {MatSelectModule} from '@angular/material/select';
-import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { AlertaErroComponent } from './components/alerta-erro/alerta-erro.component';
+
 
 
 
@@ -45,7 +51,9 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
     CrudComponent,
     ModalViewUserComponent,
     ModalFormUserComponent,
-    CadastroComponent
+    CadastroComponent,
+    RedefinicaoSenhaComponent,
+    //AlertaErroComponent
 
   ],
   imports: [
@@ -67,7 +75,9 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
     MatPaginatorModule,
     MatTableModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    AngularFireStorageModule,
+
 
   ],
   providers: [
